@@ -1,0 +1,35 @@
+n=int(input("Enter the size of array:"))
+print("Enter the elements")
+l=list(map(int,input().split()))
+flag=0
+se=int(input("Enter the elements to be searched:"))
+mini=min(l)
+min_Index=l.index(mini)
+start1=min_Index
+end1=n-1
+start2=0
+end2=min_Index-1
+while(start1<=end1):
+    mid=int((start1+end1)/2)
+    if(l[mid]==se):
+        flag=1
+        print("Element Found at index ",mid)
+        break
+    elif(l[mid]<se):
+        start1=mid+1
+    elif(l[mid]>se):
+        end1=mid-1
+if(flag==0):
+    while(start2<=end2):
+        mid=int((start2+end2)/2)
+        if(l[mid]==se):
+            flag=1
+            print("Element Found at index ",mid)
+            break
+        elif(l[mid]<se):
+            start2=mid+1
+        elif(l[mid]>se):
+            end2=mid-1
+            
+if(flag==0):
+    print("Element Not Found")
